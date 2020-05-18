@@ -160,7 +160,3 @@ function renderCartList(list) {
     cartList.appendChild(fragment);
 
 }
-function test(){
-    console.log("hello")
-}
-// renderCartList(list);

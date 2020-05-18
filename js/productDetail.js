@@ -16,7 +16,6 @@ fetch(`http://127.0.0.1:5000/product${prodURL.search}`)
         console.log(err);
     });
 
-
 function orderHelper(data) {
     // 把客人選的顏色、顏色名、尺寸、數量、庫存，存成一個物件（初始是 0 或 ""）
     let order = { iro: '', iroName: '', size: '', amount: 0, userStock: 0 };

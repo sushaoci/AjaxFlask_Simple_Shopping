@@ -5,9 +5,11 @@ let payableNum = 0;
 
 const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
 
-cartTopTitle.textContent = "購物車(" + countGoods() + ")";
-initCart();
-test()
+document.addEventListener("DOMContentLoaded", () => {
+    // toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
+    cartTopTitle.textContent = "購物車(" + countGoods() + ")";
+    initCart();   
+});
 
 // 初始畫面，購物車沒東西就說空空，購物車有東西就 render 出來 + 執行一些功能
 function initCart() {
