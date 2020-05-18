@@ -6,6 +6,7 @@ fetch(`http://127.0.0.1:5000/product${prodURL.search}`)
         return res.json();
     })
     .then(json => {
+        console.log(json)
         document.getElementById("prod").style.display = 'flex';
 
         renderDetails(json);
@@ -84,8 +85,8 @@ function orderHelper(data) {
                 localStorage.setItem("list", JSON.stringify(list));
             }
             order.amount = count.value = 0;
-            console.log(list)
-            alert('成功加入購物車!'); // eslint-disable-line no-alert
+            // alert('成功加入購物車!'); 
+            window.location.href = `index.html`;
         }
         countGoods();
     });
