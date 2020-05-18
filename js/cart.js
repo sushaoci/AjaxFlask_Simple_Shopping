@@ -7,6 +7,7 @@ const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
 
 cartTopTitle.textContent = "購物車(" + countGoods() + ")";
 initCart();
+test()
 
 // 初始畫面，購物車沒東西就說空空，購物車有東西就 render 出來 + 執行一些功能
 function initCart() {
@@ -15,9 +16,9 @@ function initCart() {
         cartNothing();
     } else {
         renderCartList(list);
-        // calcTotal();
-        // changeQty();
-        // deleteItem();
+        calcTotal();
+        changeQty();
+        deleteItem();
     }
 }
 

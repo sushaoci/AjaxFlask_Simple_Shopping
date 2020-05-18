@@ -69,6 +69,8 @@ function renderDetails(list) {
 
 // 购物车页面 
 function renderCartList(list) {
+    const cartList = document.getElementById("cartList");
+
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < list.length; i++) {
@@ -107,15 +109,17 @@ function renderCartList(list) {
         cartM1.classList = "cartMoji";
         cartM1.textContent = "數量";
 
-        const qtySelect = document.createElement('select');
-        qtySelect.dataset.confirm = list[i].confirm;
-        // record(list[i].id, list[i].color.code, list[i].size, list[i].qty, qtySelect);
+        const qtySelect = document.createElement('p');
+        qtySelect.textContent = list[i].qty;
 
         cartQty.appendChild(cartM1);
         cartQty.appendChild(qtySelect);
 
-        const cartPiece = document.createElement('div');
+        cartRight.appendChild(cartQty);
 
+
+
+        const cartPiece = document.createElement('div');
         const cartM2 = document.createElement('div');
         cartM2.classList = "cartMoji";
         cartM2.textContent = "單價";
@@ -126,6 +130,7 @@ function renderCartList(list) {
 
         cartPiece.appendChild(cartM2);
         cartPiece.appendChild(cartPrice);
+        cartRight.appendChild(cartPiece);
 
         const cartSub = document.createElement('div');
 
@@ -136,13 +141,12 @@ function renderCartList(list) {
         const cartTotal = document.createElement('p');
         cartTotal.id = "cartSubTotal";
         cartTotal.dataset.confirm = list[i].confirm;
-        cartTotal.textContent = "NT." + list[i].price * list[i].qty;
+        cartTotal.textContent = "￥" + list[i].price * list[i].qty;
 
         cartSub.appendChild(cartM3);
         cartSub.appendChild(cartTotal);
 
-        cartRight.appendChild(cartQty);
-        cartRight.appendChild(cartPiece);
+
         cartRight.appendChild(cartSub);
 
         const cartDelete = document.createElement('div');
@@ -156,3 +160,7 @@ function renderCartList(list) {
     cartList.appendChild(fragment);
 
 }
+function test(){
+    console.log("hello")
+}
+// renderCartList(list);
