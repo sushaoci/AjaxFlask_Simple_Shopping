@@ -73,18 +73,20 @@ function orderHelper(data) {
                 // 沒重複的話，就在 Local Storage 新增一筆
                 let newOrder = {
                     id: data.id,
-                    name: data.title,
+                    name: data.name,
                     price: data.price,
                     qty: order.amount,
-                    mainImg: data.main_image,
+                    mainImg: data.mainImg,
+                    confirm:data.id
                 };
                 list.push(newOrder);
                 console.log("有新一筆的List", list);
                 localStorage.setItem("list", JSON.stringify(list));
             }
             order.amount = count.value = 0;
+            console.log(list)
             alert('成功加入購物車!'); // eslint-disable-line no-alert
         }
-        // countGoods();
+        countGoods();
     });
 }

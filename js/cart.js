@@ -1,6 +1,6 @@
 
 let sumTotalNum = [];
-let shippingFeeNum = 30; 
+let shippingFeeNum = 30;
 let payableNum = 0;
 
 const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
@@ -8,7 +8,7 @@ const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
 document.addEventListener("DOMContentLoaded", () => {
     // toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
     cartTopTitle.textContent = "購物車(" + countGoods() + ")";
-    initCart();   
+    initCart();
 });
 
 // 初始畫面，購物車沒東西就說空空，購物車有東西就 render 出來 + 執行一些功能
@@ -80,7 +80,7 @@ function changeQty() {
             // 重算價錢
             calcTotal();
             // Nav 右上、cartList 左上數字
-            // countGoods();
+            countGoods();
             cartTopTitle.textContent = "購物車(" + countGoods() + ")";
         });
     });
@@ -144,7 +144,7 @@ function deleteItem() {
     function deleteHelper(e) {
         // 刪除 localStorage 資料，然後存回去
         list = list.filter((li) => {
-            return li.confirm !== e.target.getAttribute("data-confirm");
+            return li.confirm != e.target.dataset.confirm;
         });
         localStorage.setItem('list', JSON.stringify(list));
         console.log("購物車移除商品後", list);
@@ -166,7 +166,7 @@ function deleteItem() {
         // 重算價錢
         calcTotal();
         // Nav 右上、cartList 左上數字
-        // countGoods();
+        countGoods();
         cartTopTitle.textContent = "購物車(" + countGoods() + ")";
     }
 }
