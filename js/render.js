@@ -1,4 +1,4 @@
-// render Product
+// 展示页
 function renderPD(list) {
     const row = document.getElementById("row");
 
@@ -34,3 +34,35 @@ function renderPD(list) {
     
     row.appendChild(fragment);
 }
+
+// 单一商品页
+function renderDetails(list) {
+    
+    const left = document.querySelector('#left');
+    const leftImg = document.createElement('img');
+    leftImg.src = list.data.mainImg;
+    left.appendChild(leftImg);
+
+    const prodTitle = document.querySelector('#prodTitle');
+    prodTitle.textContent = list.data.name;
+
+    const prodId = document.querySelector('#prodId');
+    prodId.textContent = list.data.id;
+
+    const prodPrice = document.querySelector('#prodPrice');
+    prodPrice.textContent = '￥' + list.data.price;
+
+
+    const prodNote = document.querySelector('#prodNote');
+    prodNote.textContent = list.data.note;
+
+    const prodTexture = document.querySelector('#prodTexture');
+    prodTexture.textContent = list.data.texture;
+
+    const prodDesc = document.querySelector('#prodDesc');
+    prodDesc.textContent = list.data.description;
+
+    const madeIn = list.data.place;
+    const prodPlace = document.querySelector('#prodPlace');
+    prodPlace.innerHTML = '素材產地 / ' + madeIn + '<br>加工產地 / ' + madeIn;
+} 

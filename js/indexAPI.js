@@ -16,4 +16,5 @@ function get(api) {
         });
 }
 
-get('test')
+
+get('main')
