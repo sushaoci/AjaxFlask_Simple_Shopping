@@ -14,25 +14,27 @@ function onSubmit() {
 }
 
 function checkOut() {
-    // 清空購物車，因為結帳了。
-    localStorage.removeItem("list");
+
     const url = `http://127.0.0.1:5000/post`;
     fetch(url, {
         method: 'POST',
         // , 'Authorization': `Bearer x${access_token}
         headers: { 'Content-Type': 'application/json' },
         // 用 Fetch POST的話，必須把轉成字串才行。 
-        body: JSON.stringify({"test":"test"})
+        body: JSON.stringify({ "test": list, "id": 1 })
     })
         .then(res => {
             return res.json();
         })
-        .then(json=>{
+        .then(json => {
             console.log(json)
+            // 清空購物車，因為結帳了。
+            localStorage.removeItem("list");
+            // 取得 API 回傳的訂單號碼 + 跳轉到 Thank You Page（將訂單號碼放在網址參數裡）
+            window.location.href = `index.html`;
         })
         .catch(err => {
             console.log(err);
         });
-    // 取得 API 回傳的訂單號碼 + 跳轉到 Thank You Page（將訂單號碼放在網址參數裡）
-    // window.location.href = `index.html`;
+
 }
