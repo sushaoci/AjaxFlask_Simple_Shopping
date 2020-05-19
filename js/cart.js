@@ -24,13 +24,6 @@ function initCart() {
     }
 }
 
-// 為了抓取真正庫存的 Fetch
-async function record(id, color, size, qty, parent) {
-    let res = await fetch(`https://${host}/api/1.0/products/details?id=${id}`);
-    let json = await res.json();
-    findMax(json.data.variants, color, size, qty, parent);
-}
-
 // 為了找到對的庫存數量的功能
 function findMax(v, color, size, qty, parent) {
     let max = 0;

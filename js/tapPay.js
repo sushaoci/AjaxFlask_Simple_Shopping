@@ -21,7 +21,7 @@ function checkOut() {
         // , 'Authorization': `Bearer x${access_token}
         headers: { 'Content-Type': 'application/json' },
         // 用 Fetch POST的話，必須把轉成字串才行。 
-        body: JSON.stringify({ "test": list, "id": 1 })
+        body: JSON.stringify({ "list": list, "id": localStorage.getItem("_id") })
     })
         .then(res => {
             return res.json();

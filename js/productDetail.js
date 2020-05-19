@@ -45,49 +45,55 @@ function orderHelper(data) {
 
     // 監聽「加入購物車」按鈕被按
     addToCart.addEventListener("click", () => {
-        order.amount = count.value;
-
-        if (order.amount <= 0) {
-            // 顧客沒有選好款式及數量，不給加購物車，然後叫他選。
-            addToCart.disabled = true; 
-            addToCart.textContent = "請至少選擇一個";
-
+        if (localStorage.getItem("_id") == '') {
+            window.location.href = `profile.html`;
         } else {
-            addToCart.disabled = false;
-            addToCart.textContent = "加入購物車";
+            order.amount = count.value;
 
-            // 先看看 Local Storage 是否有加過同款的商品
-            let alreadyExist = list.filter((goods) => {
-                return goods.id === data.id;
-            }).length;
+            if (order.amount <= 0) {
+                // 顧客沒有選好款式及數量，不給加購物車，然後叫他選。
+                addToCart.disabled = true;
+                addToCart.textContent = "請至少選擇一個";
 
-            // 如果 filter 出來的陣列長度非 0，代表有重複的品項
-            if (alreadyExist > 0) {
-                list = JSON.parse(localStorage.getItem('list'));
-                list.forEach(goods => {
-                    if (goods.id === data.id) {
-                        goods.qty = parseInt(goods.qty) + parseInt(order.amount);
-                    }
-                });
-                localStorage.setItem("list", JSON.stringify(list));
             } else {
-                // 沒重複的話，就在 Local Storage 新增一筆
-                let newOrder = {
-                    id: data.id,
-                    name: data.name,
-                    price: data.price,
-                    qty: order.amount,
-                    mainImg: data.mainImg,
-                    confirm:data.id
-                };
-                list.push(newOrder);
-                console.log("有新一筆的List", list);
-                localStorage.setItem("list", JSON.stringify(list));
+                addToCart.disabled = false;
+                addToCart.textContent = "加入購物車";
+
+                // 先看看 Local Storage 是否有加過同款的商品
+                let alreadyExist = list.filter((goods) => {
+                    return goods.id === data.id;
+                }).length;
+
+                // 如果 filter 出來的陣列長度非 0，代表有重複的品項
+                if (alreadyExist > 0) {
+                    list = JSON.parse(localStorage.getItem('list'));
+                    list.forEach(goods => {
+                        if (goods.id === data.id) {
+                            goods.qty = parseInt(goods.qty) + parseInt(order.amount);
+                        }
+                    });
+                    localStorage.setItem("list", JSON.stringify(list));
+                } else {
+                    // 沒重複的話，就在 Local Storage 新增一筆
+                    let newOrder = {
+                        id: data.id,
+                        name: data.name,
+                        price: data.price,
+                        qty: order.amount,
+                        mainImg: data.mainImg,
+                        confirm: data.id
+                    };
+                    list.push(newOrder);
+                    console.log("有新一筆的List", list);
+                    localStorage.setItem("list", JSON.stringify(list));
+                }
+                order.amount = count.value = 0;
+                // alert('成功加入購物車!'); 
+                window.location.href = `cart.html`;
             }
-            order.amount = count.value = 0;
-            // alert('成功加入購物車!'); 
-            window.location.href = `index.html`;
         }
+
+
         countGoods();
     });
 }

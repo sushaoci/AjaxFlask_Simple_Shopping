@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stylish</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="../css/cart.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135626807-1"></script>
@@ -33,12 +34,31 @@
             <div class="cart" id="cart"><a href="./cart.html"></a><span class="badge" id="badge">0</span></div>
             <div class="member"><a href="./profile.html"></a><img src="" alt=""></div>
         </div>
+
     </header>
     <div class="bar"></div>
+    <!-- <div class="profileMain">
+        <div class="container" id="container">
+            <form id="contact" action="" method="post">
+                <fieldset>
+                    <input placeholder="用户名" type="text" tabindex="1" required autofocus id="username">
+                </fieldset>
+                <fieldset>
+                    <input placeholder="密码" type="password" tabindex="3" required id="password">
+                </fieldset>
+                <fieldset>
+                    <button type="button" id="register">注册</button>
+                </fieldset>
+                <fieldset>
+                    <button type="button" id="login">登录</button>
+                </fieldset>
+            </form>
+        </div>
+    </div> -->
     <div class="cartMain">
         <div class="cartTop">
             <div class="cartTitle" id="cartTopTitle">
-                購物車(0)
+                您的订单
             </div>
             <div class="cartSubTitle">
                 <p>數量</p>
@@ -49,28 +69,8 @@
         </div>
         <div class="cartList" id="cartList">
         </div>
-        <div class="cartCheck">
-            <div class="cartMoney">
-                <div class="cartMoneyWord">總金額</div>
-                <div class="cartMoneyUnit">￥</div>
-                <div class="cartMoneyTotal" id="sumTotal">0</div>
-            </div>
-            <div class="cartMoney">
-                <div class="cartMoneyWord">運費</div>
-                <div class="cartMoneyUnit">￥</div>
-                <div class="cartMoneyTotal" id="shippingFee">0</div>
-            </div>
-            <div class="cartMoney">
-                <div class="cartMoneyWord">應付金額</div>
-                <div class="cartMoneyUnit">￥</div>
-                <div class="cartMoneyTotal" id="payable">0</div>
-            </div>
-            <div class="cartMoney">
-                <div class="cartMoneyWarn">　</div>
-            </div>
-        </div>
-        <button class="cartYesPay" id="cartYesPay" type="submit">確認付款</button>
     </div>
+    <button class="cartYesPay" id="cartYesPay" type="submit">退出登录</button>
     <footer>
         <div class="ftWrap">
             <div class="ftNav">
@@ -88,13 +88,10 @@
             <div class="copy">&copy; 2018. All rights reserved</div>
         </div>
     </footer>
+    <script src="../js/order.js"></script>
     <script src="../js/localStorage.js"></script>
-    <script src="../js/cart.js"></script>
     <script src="../js/useful.js"></script>
     <script src="../js/search.js"></script>
-    <script src="../js/render.js"></script>
-    <script src="https://js.tappaysdk.com/tpdirect/v4"></script>
-    <script src="../js/tapPay.js"></script>
 </body>
 
 </html>
