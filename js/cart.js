@@ -22,34 +22,6 @@ function initCart() {
     }
 }
 
-// 為了找到對的庫存數量的功能
-function findMax(v, color, size, qty, parent) {
-    let max = 0;
-    v.forEach((m) => {
-        if (m.color_code === color && m.size === size) {
-            max = m.stock;
-        }
-    });
-    console.log("真正庫存", max);
-    optionMaker(max, qty, parent);
-}
-
-// 為了製造跟真正庫存數量相對應的下拉選單 option 的功能
-function optionMaker(max, qty, parent) {
-    for (let i = 1; i <= max; i++) {
-        const option = document.createElement('option');
-        option.setAttribute('value', i);
-        option.setAttribute('name', i);
-        option.textContent = i;
-
-        if (i === parseInt(qty)) {
-            option.setAttribute('selected', 'selected');
-        }
-
-        parent.appendChild(option);
-    }
-}
-
 // 換數量功能
 function changeQty() {
     const select = document.querySelectorAll('.cartQty > select');
