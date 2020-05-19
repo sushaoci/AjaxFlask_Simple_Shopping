@@ -8,7 +8,7 @@ function get(api) {
             return res.json();
         })
         .then(json => {
-            console.log(json)
+            // console.log(json)
             renderPD(json);
         })
         .catch(err => {

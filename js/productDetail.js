@@ -6,7 +6,7 @@ fetch(`http://127.0.0.1:5000/product${prodURL.search}`)
         return res.json();
     })
     .then(json => {
-        console.log(json)
+        // console.log(json)
         document.getElementById("prod").style.display = 'flex';
 
         renderDetails(json);
