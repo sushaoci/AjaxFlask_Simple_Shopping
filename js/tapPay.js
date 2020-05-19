@@ -1,4 +1,4 @@
-// 確認付款按鈕綁定事件
+
 cartYesPay.addEventListener("click", finalCheck);
 
 function finalCheck(e) {

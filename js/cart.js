@@ -3,17 +3,15 @@ let sumTotalNum = [];
 let shippingFeeNum = 30;
 let payableNum = 0;
 
-const cartYesPay = document.querySelector('#cartYesPay'); // 確認付款按鈕
+const cartYesPay = document.querySelector('#cartYesPay'); 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // toggleMutiple(document.querySelectorAll('.item'), "activeTab", "A");
-    cartTopTitle.textContent = "購物車(" + countGoods() + ")";
+    cartTopTitle.textContent = "购物车(" + countGoods() + ")";
     initCart();
 });
 
 // 初始畫面，購物車沒東西就說空空，購物車有東西就 render 出來 + 執行一些功能
 function initCart() {
-    console.log("購物車頁面list", list);
     if (list.length === 0) {
         cartNothing();
     } else {
@@ -74,7 +72,7 @@ function changeQty() {
             calcTotal();
             // Nav 右上、cartList 左上數字
             countGoods();
-            cartTopTitle.textContent = "購物車(" + countGoods() + ")";
+            cartTopTitle.textContent = "购物车(" + countGoods() + ")";
         });
     });
 }
@@ -106,7 +104,6 @@ function calcTotal() {
         // 如果購物車空空，沒事。
         return;
     } else {
-        // 購物車有東西，總計 = 單價 * 數量，再加總。
         sumTotalNum = list.map((li) => {
             return li.price * parseInt(li.qty);
         });
@@ -114,7 +111,6 @@ function calcTotal() {
             return acc + curr;
         });
 
-        // 應付 = 運費 + 總計（目前全館運費一律 30 (ry）
         payableNum = sumTotalNum + shippingFeeNum;
 
         // 顯示數字在正確的 div 內。
@@ -160,6 +156,6 @@ function deleteItem() {
         calcTotal();
         // Nav 右上、cartList 左上數字
         countGoods();
-        cartTopTitle.textContent = "購物車(" + countGoods() + ")";
+        cartTopTitle.textContent = "购物车(" + countGoods() + ")";
     }
 }

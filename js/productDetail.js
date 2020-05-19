@@ -31,19 +31,18 @@ function orderHelper(data) {
     // 監聽減號被按
     minus.addEventListener("click", () => {
         if (count.value > 0) {
-            addToCart.textContent = "加入購物車";
+            addToCart.textContent = "加入购物车";
             count.value--;
         }
     });
 
     // 監聽加號被按
     plus.addEventListener("click", () => {
-        addToCart.textContent = "加入購物車";
+        addToCart.textContent = "加入购物车";
         addToCart.disabled = false;
         count.value++;
     });
 
-    // 監聽「加入購物車」按鈕被按
     addToCart.addEventListener("click", () => {
         if (localStorage.getItem("_id") == '') {
             window.location.href = `profile.html`;
@@ -53,11 +52,11 @@ function orderHelper(data) {
             if (order.amount <= 0) {
                 // 顧客沒有選好款式及數量，不給加購物車，然後叫他選。
                 addToCart.disabled = true;
-                addToCart.textContent = "請至少選擇一個";
+                addToCart.textContent = "请至少选一个";
 
             } else {
                 addToCart.disabled = false;
-                addToCart.textContent = "加入購物車";
+                addToCart.textContent = "加入购物车";
 
                 // 先看看 Local Storage 是否有加過同款的商品
                 let alreadyExist = list.filter((goods) => {

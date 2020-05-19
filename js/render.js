@@ -107,7 +107,7 @@ function renderCartList(list) {
 
         const cartM1 = document.createElement('div');
         cartM1.classList = "cartMoji";
-        cartM1.textContent = "數量";
+        cartM1.textContent = "数量";
 
         const qtySelect = document.createElement('p');
         qtySelect.textContent = list[i].qty;
@@ -122,7 +122,7 @@ function renderCartList(list) {
         const cartPiece = document.createElement('div');
         const cartM2 = document.createElement('div');
         cartM2.classList = "cartMoji";
-        cartM2.textContent = "單價";
+        cartM2.textContent = "单价";
 
         const cartPrice = document.createElement('p');
         cartPrice.id = "cartPiecePrice";
@@ -136,7 +136,7 @@ function renderCartList(list) {
 
         const cartM3 = document.createElement('div');
         cartM3.classList = "cartMoji";
-        cartM3.textContent = "小計";
+        cartM3.textContent = "小计";
 
         const cartTotal = document.createElement('p');
         cartTotal.id = "cartSubTotal";
